@@ -2,9 +2,13 @@
 
 Event Framework is a minimalistic library providing publish–subscribe pattern.
 
+### Installing
+
+    gem install event-framework
+
 ### Example
 
-    require_relative 'event-framework'
+    require 'event-framework'
 
     class Server
       include EF::Object
