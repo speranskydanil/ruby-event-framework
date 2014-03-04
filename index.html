@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Ruby Event Framework by speranskydanil</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Ruby Event Framework</h1>
+        <p>Event Framework is a minimalistic library providing publish–subscribe pattern</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/speranskydanil/ruby-event-framework" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/speranskydanil/ruby-event-framework/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/speranskydanil/ruby-event-framework/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>
+<a name="ruby-event-framework" class="anchor" href="#ruby-event-framework"><span class="octicon octicon-link"></span></a>Ruby Event Framework</h1>
+
+<p>Event Framework is a minimalistic library providing publish–subscribe pattern.</p>
+
+<h3>
+<a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>Example</h3>
+
+<pre><code>require_relative 'event-framework'
+
+class Server
+  include EF::Object
+end
+
+class Client
+  include EF::Object
+end
+
+server = Server.new
+client = Client.new
+
+EF::Thread.new do
+  loop do
+    sleep 1
+    server.trigger('event', 'message')
+  end
+end
+
+EF::Thread.new do
+  client.listen_to(server, 'event') do |server, message|
+    puts message
+  end
+end
+
+EF::Loop.loop
+</code></pre>
+
+<h3>
+<a name="notices" class="anchor" href="#notices"><span class="octicon octicon-link"></span></a>Notices</h3>
+
+<ul>
+<li>EF::Object should be included after initialize</li>
+<li>Callbacks will be executed in threads of subscribers (where they were defined)</li>
+<li>You can create docs by <code>rdoc lib</code>
+</li>
+</ul><h3>
+<a name="docs" class="anchor" href="#docs"><span class="octicon octicon-link"></span></a>Docs</h3>
+
+<p><strong>EF::Thread</strong><br><em>provides threads with separated event loops</em></p>
+
+<p><strong>EF::Thread.new(*args, &amp;block)</strong><br><em>creates a thread<br>
+parameters will be passed to the block</em></p>
+
+<p><strong>EF::Thread#add(*args, &amp;block)</strong><br><em>adds a task which will be executed in the event loop<br>
+parameters will be passed to the block</em></p>
+
+<p><strong>EF::Loop</strong><br><em>provides blocking event loop</em></p>
+
+<p><strong>EF::Loop.loop</strong><br><em>starts the loop</em></p>
+
+<p><strong>EF::Loop.thread</strong><br><em>returns corresponding EF::Thread object<br>
+which you can use to add new tasks</em></p>
+
+<p><strong>EF::Object</strong><br><em>provides methods for publish–subscribe pattern</em></p>
+
+<p><strong>EF::Object#thread</strong><br><em>returns the thread where the object was defined</em></p>
+
+<p><strong>EF::Object#trigger(event, *args)</strong><br><em>calls handlers for observers for the event<br>
+parameters and the caller will be passed to the handlers<br>
+notice: usually in threads of sibscribers</em></p>
+
+<p><strong>EF::Object#listen_to(observable, event, &amp;block)</strong><br><em>registrate a handler for the event</em></p>
+
+<p><strong>EF::Object#on(event, &amp;block)</strong><br><em>listen to self</em></p>
+
+<p><strong>EF::Object#stop_listening(observable=nil, event=nil, block=nil)</strong><br><em>unregistrate all matching handlers</em></p>
+
+<p><strong>EF::Object#off(event=nil, block=nil)</strong><br><em>stop listening to self</em></p>
+
+<p><strong>Author (Speransky Danil):</strong>
+<a href="http://dsperansky.info">Personal Page</a> |
+<a href="http://ru.linkedin.com/in/speranskydanil/en">LinkedIn</a> |
+<a href="https://github.com/speranskydanil?tab=repositories">GitHub</a> |
+<a href="http://stackoverflow.com/users/1550807/speransky-danil">StackOverflow</a></p>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/speranskydanil">speranskydanil</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
