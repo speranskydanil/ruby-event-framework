@@ -153,7 +153,12 @@ module EF
 
       @mutex.synchronize do
         @observables << [observable, event, block]
-        observable.registrate(self, event, block)
+
+        if self == observable
+          @observers << [self, event, block]
+        else
+          observable.registrate(self, event, block)
+        end
       end
     end
 
@@ -174,7 +179,13 @@ module EF
 
         @observables.each do |o, e, b|
           if (!observable || o == observable) && (!event || e == event) && (!block || b == block)
-            o.unregistrate(self, e, b)
+            if self == o
+              @observers.reject! do |o, e, b|
+                o == self && e == event && b == block
+              end
+            else
+              o.unregistrate(self, e, b)
+            end
           else
             observables << [o, e, b]
           end
