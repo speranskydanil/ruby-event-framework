@@ -163,9 +163,7 @@ module EF
       raise 'event is not string' unless event.is_a? String
       raise 'block not given' unless block_given?
 
-      @mutex.synchronize do
-        listen_to self, event, &block
-      end
+      listen_to self, event, &block
     end
 
     ##
@@ -189,9 +187,7 @@ module EF
     ##
     # stop listening to self
     def off(event=nil, block=nil)
-      @mutex.synchronize do
-        stop_listening self, event, block
-      end
+      stop_listening self, event, block
     end
 
     protected
