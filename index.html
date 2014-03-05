@@ -1,44 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Ruby Event Framework by speranskydanil</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/main.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Ruby Event Framework : Event Framework is a minimalistic library providing publish–subscribe pattern" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Ruby Event Framework</title>
   </head>
+
   <body>
 
-      <header>
-        <h1>Ruby Event Framework</h1>
-        <p>Event Framework is a minimalistic library providing publish–subscribe pattern</p>
-      </header>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/speranskydanil/ruby-event-framework">View on GitHub</a>
 
-      <div id="banner">
-        <span id="logo"></span>
+          <h1 id="project_title">Ruby Event Framework</h1>
+          <h2 id="project_tagline">Event Framework is a minimalistic library providing publish–subscribe pattern</h2>
 
-        <a href="https://github.com/speranskydanil/ruby-event-framework" class="button fork"><strong>View On GitHub</strong></a>
-        <div class="downloads">
-          <span>Downloads:</span>
-          <ul>
-            <li><a href="https://github.com/speranskydanil/ruby-event-framework/zipball/master" class="button">ZIP</a></li>
-            <li><a href="https://github.com/speranskydanil/ruby-event-framework/tarball/master" class="button">TAR</a></li>
-          </ul>
-        </div>
-      </div><!-- end banner -->
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/speranskydanil/ruby-event-framework/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/speranskydanil/ruby-event-framework/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
 
-    <div class="wrapper">
-      <nav>
-        <ul></ul>
-      </nav>
-      <section>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h1>
 <a name="ruby-event-framework" class="anchor" href="#ruby-event-framework"><span class="octicon octicon-link"></span></a>Ruby Event Framework</h1>
 
@@ -88,6 +80,9 @@ EF::Loop.loop
 <ul>
 <li>EF::Object should be included after initialize</li>
 <li>Callbacks will be executed in threads of subscribers (where they were defined)</li>
+<li>In the example the handler will be called in the main thread,<br>
+but if you define the client in the thread where you bind it to the server's event,<br>
+then the handler will be called in the same thread</li>
 <li>You can create docs by <code>rdoc lib</code>
 </li>
 </ul><h3>
@@ -124,18 +119,26 @@ notice: usually in threads of sibscribers</em></p>
 
 <p><strong>EF::Object#off(event=nil, block=nil)</strong><br><em>stop listening to self</em></p>
 
+<p><strong>EF::Object#move_to(thread)</strong><br><em>by default handlers will be executed in the thread where the receiver was defined<br>
+the method changes it so that handlers will be executed in the passed thread</em></p>
+
 <p><strong>Author (Speransky Danil):</strong>
 <a href="http://dsperansky.info">Personal Page</a> |
 <a href="http://ru.linkedin.com/in/speranskydanil/en">LinkedIn</a> |
 <a href="https://github.com/speranskydanil?tab=repositories">GitHub</a> |
 <a href="http://stackoverflow.com/users/1550807/speransky-danil">StackOverflow</a></p>
       </section>
-      <footer>
-        <p>Project maintained by <a href="https://github.com/speranskydanil">speranskydanil</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Ruby Event Framework maintained by <a href="https://github.com/speranskydanil">speranskydanil</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+
     
+
   </body>
 </html>
