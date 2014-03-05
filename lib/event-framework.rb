@@ -205,6 +205,15 @@ module EF
       stop_listening self, event, block
     end
 
+    ##
+    # by default handlers will be executed in the thread where the receiver was defined <br>
+    # the method changes it so that handlers will be executed in the passed thread
+    def move_to(thread)
+      @mutex.synchronize do
+        @thread = thread
+      end
+    end
+
     protected
 
     ##

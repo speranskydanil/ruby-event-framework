@@ -88,6 +88,10 @@ notice: usually in threads of sibscribers*
 **EF::Object#off(event=nil, block=nil)**  
 *stop listening to self*
 
+**EF::Object#move_to(thread)**  
+*by default handlers will be executed in the thread where the receiver was defined  
+the method changes it so that handlers will be executed in the passed thread*
+
 **Author (Speransky Danil):**
 [Personal Page](http://dsperansky.info) |
 [LinkedIn](http://ru.linkedin.com/in/speranskydanil/en) |
