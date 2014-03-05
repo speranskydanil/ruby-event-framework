@@ -40,6 +40,9 @@ Event Framework is a minimalistic library providing publish–subscribe pattern.
 
 * EF::Object should be included after initialize
 * Callbacks will be executed in threads of subscribers (where they were defined)
+* In the example the handler will be called in the main thread,  
+but if you define the client in the thread where you bind it to the server's event,  
+then the handler will be called in the same thread
 * You can create docs by `rdoc lib`
 
 ### Docs
