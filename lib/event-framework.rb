@@ -40,6 +40,7 @@
 # === Notices
 #
 # * EF::Object should be included after initialize
+# * Also you may admix EF::Object methods and needed instance variables by extending: `Object.new.extend(EF::Object)`
 # * Callbacks will be executed in threads of subscribers (where they were defined)
 # * In the example the handler will be called in the main thread, <br> but if you define the client in the thread where you bind it to the server's event, <br> then the handler will be called in the same thread
 module EF
@@ -119,6 +120,17 @@ module EF
           @observables = []
         end
       end
+    end
+
+    ##
+    # allows you to extend any object
+    #  obj = Object.new
+    #  obj.extend EF::Object
+    def self.extended(base)
+      base.instance_variable_set :@mutex, Mutex.new
+      base.instance_variable_set :@thread, Thread.current
+      base.instance_variable_set :@observers, []
+      base.instance_variable_set :@observables, []
     end
 
     ##

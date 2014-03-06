@@ -39,6 +39,8 @@ Event Framework is a minimalistic library providing publish–subscribe pattern.
 ### Notices
 
 * EF::Object should be included after initialize
+* Also you may admix EF::Object methods and needed instance variables  
+by extending: `Object.new.extend(EF::Object)`
 * Callbacks will be executed in threads of subscribers (where they were defined)
 * In the example the handler will be called in the main thread,  
 but if you define the client in the thread where you bind it to the server's event,  
