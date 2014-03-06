@@ -202,7 +202,7 @@ module EF
           if (!observable || o == observable) && (!event || e == event) && (!block || b == block)
             if self == o
               @observers.reject! do |o, e, b|
-                o == self && e == event && b == block
+                o == self
               end
             else
               o.unregistrate(self, e, b)
