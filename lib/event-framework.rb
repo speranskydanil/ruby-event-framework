@@ -104,6 +104,10 @@ module EF
     ##
     # patches initialize to admix needed variables
     def self.included(base)
+      return if base.respond_to? :ef
+
+      def base.ef; end
+
       base.class_exec do
         alias alias_initialize initialize
 
