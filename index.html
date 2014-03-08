@@ -79,6 +79,9 @@ EF::Loop.loop
 
 <ul>
 <li>EF::Object should be included after initialize</li>
+<li>Also you may admix EF::Object methods and needed instance variables<br>
+by extending: <code>Object.new.extend(EF::Object)</code>
+</li>
 <li>Callbacks will be executed in threads of subscribers (where they were defined)</li>
 <li>In the example the handler will be called in the main thread,<br>
 but if you define the client in the thread where you bind it to the server's event,<br>
@@ -138,7 +141,17 @@ the method changes it so that handlers will be executed in the passed thread</em
       </footer>
     </div>
 
-    
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-48799405-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
 
   </body>
 </html>
