@@ -1,49 +1,37 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en-us">
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Ruby Event Framework : Event Framework is a minimalistic library providing publish–subscribe pattern" />
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Ruby Event Framework</title>
+    <meta charset="UTF-8">
+    <title>Ruby Event Framework by speranskydanil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
-
   <body>
+    <section class="page-header">
+      <h1 class="project-name">Ruby Event Framework</h1>
+      <h2 class="project-tagline">Event Framework is a minimalistic library providing publish–subscribe pattern</h2>
+      <a href="https://github.com/speranskydanil/ruby-event-framework" class="btn">View on GitHub</a>
+      <a href="https://github.com/speranskydanil/ruby-event-framework/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/speranskydanil/ruby-event-framework/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/speranskydanil/ruby-event-framework">View on GitHub</a>
-
-          <h1 id="project_title">Ruby Event Framework</h1>
-          <h2 id="project_tagline">Event Framework is a minimalistic library providing publish–subscribe pattern</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/speranskydanil/ruby-event-framework/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/speranskydanil/ruby-event-framework/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1>
-<a name="ruby-event-framework" class="anchor" href="#ruby-event-framework"><span class="octicon octicon-link"></span></a>Ruby Event Framework</h1>
+    <section class="main-content">
+      <h1>
+<a id="ruby-event-framework" class="anchor" href="#ruby-event-framework" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ruby Event Framework</h1>
 
 <p>Event Framework is a minimalistic library providing publish–subscribe pattern.</p>
 
 <h3>
-<a name="installing" class="anchor" href="#installing"><span class="octicon octicon-link"></span></a>Installing</h3>
+<a id="installing" class="anchor" href="#installing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing</h3>
 
 <pre><code>gem install event-framework
 </code></pre>
 
 <h3>
-<a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>Example</h3>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
 
 <pre><code>require 'event-framework'
 
@@ -75,7 +63,7 @@ EF::Loop.loop
 </code></pre>
 
 <h3>
-<a name="notices" class="anchor" href="#notices"><span class="octicon octicon-link"></span></a>Notices</h3>
+<a id="notices" class="anchor" href="#notices" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notices</h3>
 
 <ul>
 <li>EF::Object should be included after initialize</li>
@@ -88,41 +76,57 @@ but if you define the client in the thread where you bind it to the server's eve
 then the handler will be called in the same thread</li>
 <li>You can create docs by <code>rdoc lib</code>
 </li>
-</ul><h3>
-<a name="docs" class="anchor" href="#docs"><span class="octicon octicon-link"></span></a>Docs</h3>
+</ul>
 
-<p><strong>EF::Thread</strong><br><em>provides threads with separated event loops</em></p>
+<h3>
+<a id="docs" class="anchor" href="#docs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Docs</h3>
 
-<p><strong>EF::Thread.new(*args, &amp;block)</strong><br><em>creates a thread<br>
+<p><strong>EF::Thread</strong><br>
+<em>provides threads with separated event loops</em></p>
+
+<p><strong>EF::Thread.new(*args, &amp;block)</strong><br>
+<em>creates a thread<br>
 parameters will be passed to the block</em></p>
 
-<p><strong>EF::Thread#add(*args, &amp;block)</strong><br><em>adds a task which will be executed in the event loop<br>
+<p><strong>EF::Thread#add(*args, &amp;block)</strong><br>
+<em>adds a task which will be executed in the event loop<br>
 parameters will be passed to the block</em></p>
 
-<p><strong>EF::Loop</strong><br><em>provides blocking event loop</em></p>
+<p><strong>EF::Loop</strong><br>
+<em>provides blocking event loop</em></p>
 
-<p><strong>EF::Loop.loop</strong><br><em>starts the loop</em></p>
+<p><strong>EF::Loop.loop</strong><br>
+<em>starts the loop</em></p>
 
-<p><strong>EF::Loop.thread</strong><br><em>returns corresponding EF::Thread object<br>
+<p><strong>EF::Loop.thread</strong><br>
+<em>returns corresponding EF::Thread object<br>
 which you can use to add new tasks</em></p>
 
-<p><strong>EF::Object</strong><br><em>provides methods for publish–subscribe pattern</em></p>
+<p><strong>EF::Object</strong><br>
+<em>provides methods for publish–subscribe pattern</em></p>
 
-<p><strong>EF::Object#thread</strong><br><em>returns the thread where the object was defined</em></p>
+<p><strong>EF::Object#thread</strong><br>
+<em>returns the thread where the object was defined</em></p>
 
-<p><strong>EF::Object#trigger(event, *args)</strong><br><em>calls handlers for observers for the event<br>
+<p><strong>EF::Object#trigger(event, *args)</strong><br>
+<em>calls handlers for observers for the event<br>
 parameters and the caller will be passed to the handlers<br>
 notice: usually in threads of sibscribers</em></p>
 
-<p><strong>EF::Object#listen_to(observable, event, &amp;block)</strong><br><em>registrate a handler for the event</em></p>
+<p><strong>EF::Object#listen_to(observable, event, &amp;block)</strong><br>
+<em>registrate a handler for the event</em></p>
 
-<p><strong>EF::Object#on(event, &amp;block)</strong><br><em>listen to self</em></p>
+<p><strong>EF::Object#on(event, &amp;block)</strong><br>
+<em>listen to self</em></p>
 
-<p><strong>EF::Object#stop_listening(observable=nil, event=nil, block=nil)</strong><br><em>unregistrate all matching handlers</em></p>
+<p><strong>EF::Object#stop_listening(observable=nil, event=nil, block=nil)</strong><br>
+<em>unregistrate all matching handlers</em></p>
 
-<p><strong>EF::Object#off(event=nil, block=nil)</strong><br><em>stop listening to self</em></p>
+<p><strong>EF::Object#off(event=nil, block=nil)</strong><br>
+<em>stop listening to self</em></p>
 
-<p><strong>EF::Object#move_to(thread)</strong><br><em>by default handlers will be executed in the thread where the receiver was defined<br>
+<p><strong>EF::Object#move_to(thread)</strong><br>
+<em>by default handlers will be executed in the thread where the receiver was defined<br>
 the method changes it so that handlers will be executed in the passed thread</em></p>
 
 <p><strong>Author (Speransky Danil):</strong>
@@ -130,18 +134,16 @@ the method changes it so that handlers will be executed in the passed thread</em
 <a href="http://ru.linkedin.com/in/speranskydanil/en">LinkedIn</a> |
 <a href="https://github.com/speranskydanil?tab=repositories">GitHub</a> |
 <a href="http://stackoverflow.com/users/1550807/speransky-danil">StackOverflow</a></p>
-      </section>
-    </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Ruby Event Framework maintained by <a href="https://github.com/speranskydanil">speranskydanil</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/speranskydanil/ruby-event-framework">Ruby Event Framework</a> is maintained by <a href="https://github.com/speranskydanil">speranskydanil</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
-    </div>
 
-              <script type="text/javascript">
+    </section>
+
+            <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
@@ -152,6 +154,6 @@ the method changes it so that handlers will be executed in the passed thread</em
             } catch(err) {}
           </script>
 
-
   </body>
 </html>
+
