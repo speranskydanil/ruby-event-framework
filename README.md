@@ -8,33 +8,35 @@ Event Framework is a minimalistic library providing publish–subscribe pattern.
 
 ## Example
 
-    require 'event-framework'
+```ruby
+require 'event-framework'
 
-    class Server
-      include EF::Object
-    end
+class Server
+  include EF::Object
+end
 
-    class Client
-      include EF::Object
-    end
+class Client
+  include EF::Object
+end
 
-    server = Server.new
-    client = Client.new
+server = Server.new
+client = Client.new
 
-    EF::Thread.new do
-      loop do
-        sleep 1
-        server.trigger('event', 'message')
-      end
-    end
+EF::Thread.new do
+  loop do
+    sleep 1
+    server.trigger('event', 'message')
+  end
+end
 
-    EF::Thread.new do
-      client.listen_to(server, 'event') do |server, message|
-        puts message
-      end
-    end
+EF::Thread.new do
+  client.listen_to(server, 'event') do |server, message|
+    puts message
+  end
+end
 
-    EF::Loop.loop
+EF::Loop.loop
+```
 
 ## Notices
 
