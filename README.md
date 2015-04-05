@@ -2,11 +2,11 @@
 
 Event Framework is a minimalistic library providing publish–subscribe pattern.
 
-### Installing
+## Installing
 
     gem install event-framework
 
-### Example
+## Example
 
     require 'event-framework'
 
@@ -36,7 +36,7 @@ Event Framework is a minimalistic library providing publish–subscribe pattern.
 
     EF::Loop.loop
 
-### Notices
+## Notices
 
 * EF::Object should be included after initialize
 * Also you may admix EF::Object methods and needed instance variables  
